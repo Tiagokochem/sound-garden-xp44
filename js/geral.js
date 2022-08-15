@@ -1,29 +1,19 @@
 const SOUND_URL = "https://xp41-soundgarden-api.herokuapp.com";
 
-const inputNome =  document.getElementById("nome");
-const inputAtracoes = document.getElementById("atracoes");
-const inputDescricao = document.getElementById("descricao");
-const inputData = document.getElementById("data");
-const inputLotacao = document.getElementById("lotacao");
-const inputBanner = document.getElementById("banner");
+const formCadastroEvento = document.querySelector('#cadastro-evento');
 
-//QueryStrin
-//Tratamento de caracteres especiais
+formCadastroEvento.addEventListener('submit', () => {
+    event.preventDefault(); //evita que a página seja recarreada
 
-const prencherCampos = (dados) => {
-    const{name, poster, attractions, description, scheduled, number_tickets } = dados; // ver se precisa de ;
+    const inputNome =  document.getElementById("nome");
+    const inputAtracoes = document.getElementById("atracoes");
+    const inputDescricao = document.getElementById("descricao");
+    const inputData = document.getElementById("data");
+    const inputLotacao = document.getElementById("lotacao");
+    const inputBanner = document.getElementById("banner");
 
-    inputNome.value = name;
-    inputAtracoes.value = attractions; //tratamento de virgula,
-    inputDescricao.value = description;
-    inputData.value = scheduled; // tratamento pra data
-    inputLotacao.value = number_tickets;
-    inputBanner.value = poster;
+    alert(inputNome.value);
 
-}
+})
 
-const getEventoPorId = (id) => {
-    fetch(`${SOUND_URL}/events/${id}`)
-    .then((response) => response.json())
-    .then(prencherCampos);
-}
+
