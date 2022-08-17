@@ -1,14 +1,47 @@
-const URL = "https://xp41-soundgarden-api.herokuapp.com/events"
+const findID = () => {
 
-const inputName = document.querySelector('#nome');
-const inputPoster = document.querySelector('#poster');
+    const url = new URL(window.location.href);
+    // tester console log window
+    const id = url.searchParams.get('id');
 
-const id = new URLSearchParams(window.location.search).get('id');
+    return id;
 
-
-async function listarEventos (){
-    const resposta = await fetch(URL)
-    return resposta.json()
 }
 
-listarEventos()
+const exibirDetalhesEvento =  async () => {
+    const dadosEvento = 
+        await fetch('https://xp41-soundgarden-api.herokuapp.com/events/'+ findID(),{ 
+        method: "GET",
+        mode: "cors",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then((response) => response.json());
+
+    //console.log(dadosEvento);
+
+    const inputNome = document.getElementById("nome");
+    const inputAtracoes = document.getElementById("atracoes");
+    const inputDescricao = document.getElementById("descricao");
+    const inputData = document.getElementById("data");
+    const inputLotacao = document.getElementById("lotacao");
+    const inputBanner = document.getElementById("banner");
+
+    inputNome.value = dadosEvento.name;
+    inputAtracoes.value = dadosEvento.attractions.join(', ');
+    inputBanner.value = dadosEvento.poster;
+    inputDescricao.value = dadosEvento.description;
+    inputData.value = dadosEvento.scheduled;
+    inputLotacao.value = dadosEvento. number_tickets;
+}
+
+
+exibirDetalhesEvento();
+
+// chamar o botão 
+
+// atualizar o evento 
+
+// put
+
+//modal js
