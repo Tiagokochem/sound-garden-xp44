@@ -54,3 +54,47 @@ solicitarReserva.addEventListener('click', async (event) =>{
     }
 
 })
+
+
+
+async function showModal(id) {
+    modal.setAttribute("style", "display:flex");
+    inputID.value = id;
+    const resposta = await fetch(`${url}/events/${id}`);}
+
+    function fechaModal () {
+      modal.setAttribute("style", "display:none");
+      nome.value = "";
+      email.value = "";
+      lotacao.value="";
+      inputID.value =""; }
+
+    btn.addEventListener('click', fechaModal)
+
+    twoBtn.addEventListener('click', fechaModal)
+ 
+    btnEnviar.addEventListener('click', async function criarReserva (e) {
+      e.preventDefault();
+
+      const reserva = {
+      "owner_name": nome.value,
+      "owner_email": email.value,
+      "number_tickets": lotacao.value,
+      "event_id":inputID.value
+      }
+
+      const response = await fetch(`${url}/bookings`, {
+      method:"POST",
+      body: JSON.stringify(reserva),
+      headers: {
+        "Content-type": "application/json",
+    },},)
+
+    const resultado = await response.json();
+    console.log(response)
+
+  if (response.status == 201) {
+   alert("Reserva efetuada com sucesso")
+   window.location.href = "admin.html"
+  }
+    })

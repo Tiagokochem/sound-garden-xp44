@@ -1,75 +1,80 @@
-.container-css {
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0,0,0,0.5);
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    z-index: 2000;
-    display: none;
-    align-items: center;
-    justify-content: center;
-
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+body{
+    font-family: 'Questrial', sans-serif;
 }
 
-.conteudo-container{
-    flex-direction: wrap;
-    background-color: white;
-    width: 30%;
-    min-width: 300px;
-    padding: 40px;
-    border: 10px solid #c2185b;
-    box-shadow: 0 0 0 10px white;
-    position: relative;
-}
-
-#modal-nome{
-    display: block;
-    width: 500px;
-    height: 35px;
-    margin-bottom: 25px;
-   
-}
-
-#modal-email{
-    display: block;
-    width: 500px;
-    height: 35px;
-    margin-bottom: 15px;
-    
-}
-
-#modal-solicitar {
-position: absolute;
-left: 390px;
-background-color: #ee0160c0;
-border-radius: 5px;
-font-size: 1.2em;
-font-weight: bolder;
+#modal {
+position: fixed;
+padding: 0;
+left: 0;
+top:0;
+width: 100%;
+height: 100%;
+display: none;
 justify-content: center;
+flex-direction: column;
+align-items: center;
+text-align: center;
+background-color: rgba(0, 0, 0, 0.5);
+transform: scale(1.1);
+}   
+
+#headermodal {
+width: 550px;
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
-
-
-
-
-
-.fechar {
-    position: absolute;
-    top: -30px;
-    right: -30px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 4px solid white;
-    background-color: #c2185b;
-    font-family: 'Questrial';
-    color: white;
-    cursor: pointer;
-    font-size: 1.2em;
+#block{
+background-color: white;
 }
 
-.container-css.mostrar {
-    display: flex;
+h3 {
+margin-top: 30px;
+}
 
+.btn-close {
+position: absolute;
+margin-left: 475px;
+}
+
+#formulario {
+padding-left: 100px;
+}
+
+#name {
+width: 350px;
+margin-top: 30px;
+}
+
+#email{
+width: 350px;
+margin-top: 20px;
+}
+
+#lotacao{
+    width: 350px;
+    margin-top: 20px;
+    }
+
+button {
+color: white;
+background-color: #C2185B;
+border: 0;
+}
+
+.twobtn {
+font-size: 18px;
+margin-top: 30px;
+width: 150px;
+border-radius: 5px;
+margin-bottom: 30px;
+margin-right: 25px;
+}
+.btnsubmit {
+font-size: 18px;
+width: 180px;
+border-radius: 5px;
+margin-bottom: 30px;
 }

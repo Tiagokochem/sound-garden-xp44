@@ -40,4 +40,3 @@ inputForm.addEventListener('submit', async (event) =>{
   window.location.href = 'admin.html'
   
 }) 
-
